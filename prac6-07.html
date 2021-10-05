@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대수 비교</title>
+</head>
+<body>
+    <h3>큰 자리수와 낮은자리수 같은지 비교</h3>
+    <hr>
+    <script>
+    let big = prompt("숫자 입력", "0");
+    if(isFinite(big)) {
+        let n = parseInt(big);
+        if(n > 0) {
+            let x = n%10;
+            let y = 0;
+            while(n != 0) {
+                 y = n % 10;
+                 n = Math.floor(n/10);
+            }
+            if(y == x)
+                document.write(big + ": 같음");
+            else
+                document.write(big + ": 다름");
+        }
+    }
+    else {
+        document.write(big + "다시 입력하십시오.");
+    }
+    </script>
+    </body>
+    </html>
