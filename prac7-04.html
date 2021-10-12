@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prac7-04</title>
+</head>
+<body>
+    <h3>일요일은 pink, 다른요일은 gold 배경</h3>
+    <hr>
+    <script>
+        let day = new Date();
+        let h="일";
+        if (day.getDay() ==0)
+            document.body.style.backgroundColor = "pink";
+        else
+            document.body.style.backgroundColor = "gold";
+        switch(day.getDay()){
+            case 0:h="일"; break;
+            case 1:h="월"; break;
+            case 2:h="화"; break;
+            case 3:h="수"; break;
+            case 4:h="목"; break;
+            case 5:h="금"; break;
+            case 6:h="토"; break;
+        }
+        document.write("오늘 : " + day.getDate() + "일 " + h + "요일");
+    </script>
+    
+</body>
+</html>
