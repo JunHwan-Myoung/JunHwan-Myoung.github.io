@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prac8-08</title>
+</head>
+
+<body>
+    <script>
+        c = 2
+        function transform() {
+            let name = document.getElementById("earth");
+            earth.style.transform = "scaleX(" + c + ")";
+            c++;
+        }
+    </script>
+    <h3>클릭하면 2,3,4 배 옆으로 늘어납니다.</h3>
+    <hr>
+    <img src="prac5-06.png" id="earth" width="200" onclick="transform()">
+</body>
+
+</html>
