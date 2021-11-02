@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var prev = null;
+
+        window.onclick = function (e) {
+            if (e.target.tagName.toLowerCase() != "li") {
+                return;
+            }
+            else {
+                e.target.style.fontSize = "1.3em";
+            }
+            if (prev != null) {
+                prev.style.fontSize = "1em";
+            }
+            prev = e.target;
+        }
+    </script>
+</head>
+
+<body>
+    <h3>아이템을 클릭하면 1.3배 크기로</h3>
+    <hr>
+    <p>여름 방학 때 하고 싶은 것들</p>
+    <ul>
+        <li>여행가기</li>
+        <li>낚시가기</li>
+        <li>캠핑가기</li>
+    </ul>
+</body>
+
+</html>

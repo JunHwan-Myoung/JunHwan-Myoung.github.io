@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let text = ["오토바이를 타고 동해안 일주",
+            "배스 낚시로 5짜 잡기",
+            "캠핑장가서 불멍하기"];
+        let commentDiv;
+
+        function init() {
+            commentDiv = document.getElementById("commentDiv");
+
+            let liArray = document.getElementsByTagName("li");
+            for (i = 0; i < liArray.length; i++) {
+                liArray[i].addEventListener("mouseover", over, false); // false 생략가능
+                liArray[i].addEventListener("mouseout", hideCommentDiv, false); // false 생략가능 
+            }
+        }
+
+        function over(e) {
+            let n = 0;
+            switch (e.target.id) {
+                case "l0": n = 0; break;
+                case "l1": n = 1; break;
+                case "l2": n = 2; break;
+                //case "l3": n = 3; break;
+            }
+            setCommentDiv(text[n], e);
+        }
+
+        function setCommentDiv(comment, e) {
+            commentDiv.innerHTML = comment;
+            commentDiv.style.left = e.clientX + "px";
+            commentDiv.style.top = e.clientY + "px";
+            commentDiv.style.border = "1px solid yellowgreen";
+            commentDiv.style.background = "aliceblue";
+            commentDiv.style.visibility = "visible";
+            commentDiv.style.width = "200px";
+            commentDiv.style.height = "80px";
+        }
+
+        function hideCommentDiv() {
+            commentDiv.style.visibility = "hidden";
+        }
+
+    </script>
+</head>
+
+<body onload="init()">
+    <h3>아이템에 마우스를 올리면 설명 출력</h3>
+    <hr>
+    <p>여름 방학 때 하고 싶은 것들</p>
+    <ul>
+        <li>여행가기</li>
+        <li>낚시가기</li>
+        <li>캠핑가기</li>
+    </ul>
+    <div id="commentDiv" style="position:absolute"></div>
+</body>
+
+</html>

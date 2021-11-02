@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function drawImage() {
+            let found = null;
+            let sel = document.getElementsByName("fruits"); // fruits 이름을 가진 모든 태그를 찾는 코드
+            let img = document.getElementById("fruitimage"); // 찾고자하는 id 값을 찾는 코드 
+
+            for (let i = 0; i < sel.length; i++) {
+                if (sel[i].checked == true) {
+                    found = sel[i];
+                    break;
+                }
+            }
+            img.src = found.value;
+        }
+    </script>
+</head>
+
+<body onload="drawImage()">
+    <h3>라디오 버튼을 클릭하면 이미지를 출력합니다.</h3>
+    <hr>
+    <form>
+        <input type="radio" name="fruits" value="banana.png" onchange="drawImage()">바나나
+        <input type="radio" name="fruits" value="mango.png" onchange="drawImage()">망고
+        <input type="radio" name="fruits" value="apple.png" checked onchange="drawImage()">사과
+        <br>
+        </select>
+        <img id="fruitimage" src="media/apple.png">
+    </form>
+</body>
+
+</html>
