@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{width: 100%;}
+        th,td{border: 2px solid;}
+    </style>
+    <script>
+        function loadDoc() {
+            var url = 'http://apis.data.go.kr/1741000/DisasterMsg3/getDisasterMsg1List';
+            var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'VkFeTDpdy60baakJkiUTLpAl2cTj5JcKZU9%2FTqwfEhCkjKcitzBJV5Ai7NbG9WHw59wpUa0Hj2eYHV8y1F8YTw%3D%3D'; /*Service Key*/
+queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
+queryParams += '&' + encodeURIComponent('type') + '=' + encodeURIComponent('xml'); /**/
+
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    myFunction(this);
+                }
+            };
+            xhttp.open("GET", url + queryParams, true);
+            xhttp.send();
+        }
+        function myFunction(xml) {
+            var i;
+            var xmlDoc = xml.responseXML;
+            var table = "<tr><th>지역</th><th>내용</th></tr>";
+            var x = xmlDoc.getElementsByTagName("row");
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("location_name")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("msg")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+            document.getElementById("table").innerHTML = table;
+        }
+    </script>
+        
+</head>
+
+<body>
+    <div id="demo">
+    <h2>재난문자발송 발령 현황</h2>
+    <button type="button" onclick="loadDoc()">재난문자발송 발령 현황 서비스 조회</button>
+</div>
+    <table id="table"></table>
+    
+
+</body>
+
+</html>
